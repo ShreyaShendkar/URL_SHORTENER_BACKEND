@@ -40,14 +40,15 @@ app.get("/:shortId", (req, res, next) => {
   });
 });
 
+const PORT = process.env.PORT || 5000;
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
       console.log(
-        `Server is running successfully on port ${process.env.PORT}`
+        `Server is running successfully on port ${PORT}`
       );
     });
   })
